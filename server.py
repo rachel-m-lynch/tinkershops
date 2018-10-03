@@ -33,6 +33,27 @@ def show_login():
 
     return render_template('login.html')
 
+
+@app.route('/login', methods=['POST'])
+def complete_login():
+    """Show login page"""
+
+    username = request.form.get('username')
+    password = request.form.get('password')
+    
+    user = User.query.filter_by(username=username).first()
+
+    if not user or user.password != password:
+        flash('Invalid password')
+        return redirect('/login')
+
+    session['user_id'] = user_id
+
+    flash("Logged In")
+
+    return redirect(f'/users/{user.id}')
+
+
 @app.route('/add_projects')
 def add_projects():
     """Add a project"""
