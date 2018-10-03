@@ -86,7 +86,19 @@ def add_projects():
         flash('Project name is taken')
         return redirect('/add_projects')
 
-    new_project = Project()
+    new_project = Project(p_name=p_name,
+                          p_type=p_type,
+                          p_summary=p_summary,
+                          p_picture=p_picture,
+                          p_description=p_description,
+                          user_id=user_id)
+
+    db.session.add(new_project)
+    db.session.commit()
+
+    flash('New Project Added')
+
+    return redirect('/')
 
 
 
@@ -123,7 +135,7 @@ def display_contact():
 
 if __name__ == "__main__":
     app.debug = True
-    # connect_to_db(app)
+    connect_to_db(app)
     DebugToolbarExtension(app)
 
     app.run(host="0.0.0.0")
