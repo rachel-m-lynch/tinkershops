@@ -63,7 +63,7 @@ class Project(db.Model):
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
 
-    p_name = db.Column(db.String, nullable=False)
+    p_name = db.Column(db.String, nullable=False, unique=True)
 
     p_type = db.Column(db.String, nullable=False)
 
@@ -73,7 +73,7 @@ class Project(db.Model):
 
     p_description = db.Column(db.String)
 
-    users_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     def __repr__(self):
         """Display information about the project"""

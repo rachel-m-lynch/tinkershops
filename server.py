@@ -21,11 +21,6 @@ def index():
 
     return render_template('index.html')
 
-@app.route('/projects')
-def show_projects():
-    """Projects page"""
-
-    return render_template('projects.html')
 
 @app.route('/login')
 def show_login():
@@ -55,10 +50,44 @@ def complete_login():
 
 
 @app.route('/add_projects')
-def add_projects():
-    """Add a project"""
+def display_add_form():
+    """Display the add project form"""
 
     return render_template('add-projects.html')
+
+
+@app.route('/add_projects', methods=['POST'])
+def add_projects():
+    """Add a project to the database"""
+
+    first_name = request.form.get('first_name')
+
+    p_name = request.form.get('p_name')
+
+    p_type = request.form.get('p_type')
+
+    p_summary = request.form.get('p_summary')
+
+    p_picture = request.form.get('p_picture')
+
+    p_description = request.form.get('p_description')
+
+    contributor = User.query.get(first_name)
+
+    print(contributor)
+
+    user_id = contributor.id
+
+    print(user_id)
+
+    project = Project.query.filter_by(p_name=p_name).first()
+
+    if project:
+        flash('Project name is taken')
+        return redirect('/add_projects')
+
+    new_project = Project()
+
 
 
 @app.route('/h_projects')
@@ -80,6 +109,14 @@ def combination_projects():
     """Display combination projects"""
 
     return render_template('combination-projects.html')
+
+
+@app.route('/contact')
+def display_contact():
+    """Display contact page"""
+
+    return render_template('contact.html')
+
 
 ###############################################################################
 
