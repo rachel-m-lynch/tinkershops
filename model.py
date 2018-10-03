@@ -65,6 +65,8 @@ class Project(db.Model):
 
     p_name = db.Column(db.String, nullable=False)
 
+    p_type = db.Column(db.String, nullable=False)
+
     p_summary = db.Column(db.String, nullable=False)
 
     p_picture = db.Column(db.String)
@@ -78,6 +80,7 @@ class Project(db.Model):
 
         return f"""<Project ID: {self.id}
                    Project Name: {self.p_name}
+                   Project Type: {self.p_type}
                    Project Summary: {self.p_summary}
                    Project Picture: {self.p_picture}
                    Project Description: {self.p_description}>"""

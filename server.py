@@ -60,6 +60,27 @@ def add_projects():
 
     return render_template('add-projects.html')
 
+
+@app.route('/h_projects')
+def hardware_projects():
+    """Display hardware projects"""
+
+    return render_template('hardware-projects.html')
+
+
+@app.route('/s_projects')
+def software_projects():
+    """Display software projects"""
+
+    return render_template('software-projects.html')
+
+
+@app.route('/c_projects')
+def combination_projects():
+    """Display combination projects"""
+
+    return render_template('combination-projects.html')
+
 ###############################################################################
 
 
