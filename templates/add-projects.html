@@ -5,36 +5,36 @@
 {% block title %} Add A Project {% endblock %}
 
 {% block content %} 
-  <div class="row align-items-center">
-    <div class="col align-self-center">
+  <div class="row justify-content-around">
+    <div class="col-10 align-self-center">
       <form>
         <div class="form-group">
-          <label for="exampleFormControlInput1">Email address</label>
+          <label for="exampleFormControlInput1">Enter Your Email Address</label>
           <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
         </div>
         <div class="form-group">
-          <label for="exampleFormControlSelect1">Example select</label>
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+          <label for="projectNameField">Enter the Project Name</label>
+          <input type="text" class="form-control" id="projectNameField" placeholder="Awesome Project Name">
+        </div>
+        <div class="form-group">
+          <label for="projectTypeSelection">Select Project Type</label>
+          <select class="form-control" id="projectTypeSelection">
+            <option>Hardware</option>
+            <option>Software</option>
+            <option>Combination</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="exampleFormControlSelect2">Example multiple select</label>
-          <select multiple class="form-control" id="exampleFormControlSelect2">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
+          <label for="projectSummaryField">Add a Project Summary</label>
+          <textarea class="form-control" id="projectSummaryField" rows="2"></textarea>
         </div>
         <div class="form-group">
-          <label for="exampleFormControlTextarea1">Example textarea</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <label for="projectPictureField">Add a Project Picture</label>
+          <textarea class="form-control" id="projectPictureField" rows="1"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="projectDescriptionField">Add a Project Description</label>
+          <textarea class="form-control" id="projectDescriptionField" rows="5"></textarea>
         </div>
       </form>
     </div>
