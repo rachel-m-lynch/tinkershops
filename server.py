@@ -1,8 +1,11 @@
 from jinja2 import StrictUndefined
 
-from flask import Flask, render_template, redirect, request, session
+from flask import Flask, render_template, redirect, request, flash, session
 from flask import jsonify
 from flask_debugtoolbar import DebugToolbarExtension
+
+from model import User, UserProject, Project
+from model import connect_to_db, db
 
 import os
 
